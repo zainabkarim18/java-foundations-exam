@@ -25,7 +25,7 @@ public class Main {
         // TODO: Create an EmployeeManager
         EmployeeManager manager = new EmployeeManager();
         // TODO: Create and add at least 3 employees to it
-        Employee employee1 = new Employee(1, "Zainab", "Engineering", 3500);
+        Employee employee1 = new Employee(1, "Zainab", "Engineering", 8000);
         Employee employee2 = new Employee(2, "Sara", "HR", 6800);
         Employee employee3 = new Employee(3, "Noor", "Engineering", 4000);
 
@@ -48,11 +48,20 @@ public class Main {
 
         System.out.println("\n=== PART C: Inheritance & Polymorphism ===");
         // TODO: Create at least 1 Manager and 1 Intern
+        Manager manager1 = new Manager(4, "Bayan", "Engineering", 5000, 8);
+        Intern intern1 = new Intern(5, "Ali", "Marketing", 1200, "UOB");
+
         // TODO: Add all employees (Employee, Manager, Intern) to the manager
+        manager.addEmployee(manager1);
+        manager.addEmployee(intern1);
+
         // TODO: Loop through getAllEmployees() and call getBonus() on each
         //       Print: "<name> bonus: <amount>" for each one
         //       This demonstrates polymorphism — same method call, different behavior
 
+        for (Employee employee : manager.getAllEmployees()) {
+            System.out.println(employee.getName() + " bonus: " + employee.getBonus());
+        }
 
         System.out.println("\n=== PART D: Exception Handling ===");
         // TODO: Use try/catch to demonstrate:
