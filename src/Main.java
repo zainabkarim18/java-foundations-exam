@@ -66,9 +66,32 @@ public class Main {
         System.out.println("\n=== PART D: Exception Handling ===");
         // TODO: Use try/catch to demonstrate:
         //   1. Trying to remove an employee that doesn't exist
+        System.out.println("Trying to remove employee with ID 8");
+        try {
+            manager.removeEmployee(8);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
         //   2. Trying to promote an employee that's already a Manager
+        System.out.println("Trying to promote employee with ID 2 (already a Manager)");
+        try {
+            manager.promoteToManager(2, 10);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
+
         //   3. Trying to create an Employee with invalid data (negative salary)
         // Each try/catch should print the error message gracefully
-
+        System.out.println("Trying to create an employee with negative salary");
+        try {
+            Employee invalid = new Employee(6, "Haneen", "Marketing", -1200);
+            manager.addEmployee(invalid);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error: " + e.getMessage());
+        }
     }
+
+
 }
+
